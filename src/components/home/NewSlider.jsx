@@ -14,14 +14,28 @@ const content = [
 function NewSlider() {
   const [selectedImage, setSelectedImage] = useState(content[0].img);
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageOpacity, setImageOpacity] = useState(0);
+  const [fadeIn, setFadeIn] = useState(true);
 
   useEffect(() => {
-    setImageLoaded(false);
-  }, [selectedImage]);
+    const timer = setInterval(() => {
+      changeContent(selectedIndex + 1);
+    }, 5000); // Change image every 5 seconds
+    return () => clearInterval(timer);
+  }, [selectedIndex]);
 
-  const handleImageLoad = () => {
-    setImageLoaded(true);
+  const changeContent = (newIndex) => {
+    setFadeIn(false); // Start fading out
+    setTimeout(() => {
+      setSelectedIndex(newIndex % content.length); // Wrap around
+      setFadeIn(true); // Start fading in
+    }, 300); // Wait for fade-out duration
+  };
+
+  const handleContentChange = (index) => {
+    if (index !== selectedIndex) {
+      changeContent(index);
+    }
   };
 
   const divStyle = (index) => ({
@@ -63,7 +77,7 @@ function NewSlider() {
     alignItems: 'center',
     minHeight: '100vh',
     padding: '0 50px',
-    flexDirection: 'column', // Align items vertically for the heading and content
+    flexDirection: 'column',
   };
 
   const columnStyle = {
@@ -82,15 +96,15 @@ function NewSlider() {
   };
 
   const imageStyle = {
-    transition: 'opacity 0.5s ease-in-out',
-    opacity: imageLoaded ? 1 : 0,
+    transition: 'opacity 1s ease-in-out', // Change to slower or faster by modifying the duration here
+    opacity: imageOpacity,
     width: '100%',
     height: 'auto',
   };
 
   const headingStyle = {
     textAlign: 'center',
-    fontSize: '2.5em', // Adjust size to match the design
+    fontSize: '2.5em',
     color: '#ffffff',
     fontWeight: 'bold',
     marginBottom: '10px',
@@ -105,7 +119,6 @@ function NewSlider() {
 
   return (
     <div style={containerStyle}>
-      {/* Heading Section */}
       <div>
         <h1 style={headingStyle}>Engage in a Snap: Click, Engage, Done!</h1>
         <p style={subheadingStyle}>
@@ -113,7 +126,6 @@ function NewSlider() {
         </p>
       </div>
 
-      {/* Content Section */}
       <div style={{ display: 'flex' }}>
         <div style={columnStyle}>
           {content.map((item, index) => (
@@ -140,14 +152,17 @@ function NewSlider() {
             </div>
           ))}
         </div>
-        <div style={imageContainerStyle}>
-          <img 
-            src={selectedImage} 
-            alt={content[selectedIndex].title} 
-            style={imageStyle} 
-            onLoad={handleImageLoad}
-          />
-        </div>
+        <div className="w-full lg:w-1/2">
+            <div className="relative w-full aspect-video">
+              <img
+                src={content[selectedIndex].img}
+                alt={content[selectedIndex].title}
+                className={`object-contain w-full h-full transition-opacity duration-500 ${
+                  fadeIn ? "opacity-100" : "opacity-0"
+                }`}
+              />
+            </div>
+          </div>
       </div>
     </div>
   );
