@@ -3,110 +3,154 @@ import React, { useState, useEffect } from 'react';
 // Import images as specified
 import img1 from '../../images/1.png';
 import img2 from '../../images/2.png';
-import img3 from '../../images/4.png';
-
+import img3 from '../../images/3.png';
 
 const content = [
-  {
-    title: "Click to Spark Conversations!",
-    description:
-      "Tired of crafting comments from scratch? Just click the LinkedGage icon attached to every post's comment section, and you're ready to roll.",
-    img: img1,
-  },
-  {
-    title: "Tone It Up",
-    description:
-      "Choose the right tone for any post—whether you want to sound professional, supportive, or enthusiastic, LinkedGage's popup offers various emotions for perfectly tailored responses.",
-    img: img2,
-  },
-  {
-    title: "Your Comment, Your Way",
-    description:
-      "Once your comment is generated, it's placed directly in the comment box. Feel free to edit it or simply hit 'Comment' to share it instantly.",
-    img: img3,
-  },
+  { title: "Click to Spark Conversations!", description: "Tired of crafting comments from scratch? Just click the LinkedGage icon attached to every post’s comment section, and you’re ready to roll.", img: img1 },
+  { title: "Tone It Up", description: "Choose the right tone for any post—whether you want to sound professional, supportive, or enthusiastic, LinkedGage’s popup offers various emotions for perfectly tailored responses.", img: img2 },
+  { title: "Your Comment, Your Way", description: "Once your comment is generated, it’s placed directly in the comment box. Feel free to edit it or simply hit ‘Comment’ to share it instantly.", img: img3 }
 ];
 
-export default function NewSlider() {
+function NewSlider() {
+  const [selectedImage, setSelectedImage] = useState(content[0].img);
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [fadeIn, setFadeIn] = useState(true); // Initial fade-in set to true
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setFadeIn(false); // Start fading out
-      setTimeout(() => {
-        setSelectedIndex((prevIndex) => (prevIndex + 1) % content.length);
-        setFadeIn(true); // Start fading in after image has changed
-      }, 300); // Wait for fade-out duration before changing image
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
+    setImageLoaded(false);
+  }, [selectedImage]);
 
-  const handleContentChange = (index) => {
-    if (index !== selectedIndex) {
-      setFadeIn(false); // Start fading out
-      setTimeout(() => {
-        setSelectedIndex(index); // Change the image
-        setFadeIn(true); // Start fading in
-      }, 300); // Wait for fade-out duration before fading in new image
-    }
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+  };
+
+  const divStyle = (index) => ({
+    padding: '20px 20px',
+    border: '1px solid transparent',
+    borderRadius: '10px',
+    backgroundColor: selectedIndex === index ? '#2c3e50' : 'transparent',
+    color: 'white',
+    cursor: 'pointer',
+    marginBottom: '10px',
+    transition: 'transform 0.3s ease-in-out, background-color 0.3s ease-in-out',
+    transform: selectedIndex === index ? 'scale(1.05)' : 'scale(1)',
+    display: 'flex',
+    alignItems: 'center',
+    position: 'relative',
+    minHeight: '100px',
+  });
+
+  const numberContainerStyle = {
+    fontWeight: 'bold',
+    fontSize: '30px',
+    marginRight: '20px',
+    color: '#ffffff',
+  };
+
+  const lineStyle = {
+    height: '4px',
+    width: '100%',
+    backgroundColor: '#007bff',
+    position: 'absolute',
+    bottom: '-2px',
+    left: '0',
+    borderRadius: '2px',
+  };
+
+  const containerStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    minHeight: '100vh',
+    padding: '0 50px',
+    flexDirection: 'column', // Align items vertically for the heading and content
+  };
+
+  const columnStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '50%',
+    marginRight: '80px',
+    padding: '5px',
+  };
+
+  const imageContainerStyle = {
+    width: '50%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  };
+
+  const imageStyle = {
+    transition: 'opacity 0.5s ease-in-out',
+    opacity: imageLoaded ? 1 : 0,
+    width: '100%',
+    height: 'auto',
+  };
+
+  const headingStyle = {
+    textAlign: 'center',
+    fontSize: '2.5em', // Adjust size to match the design
+    color: '#ffffff',
+    fontWeight: 'bold',
+    marginBottom: '10px',
+  };
+
+  const subheadingStyle = {
+    textAlign: 'center',
+    fontSize: '1.25em',
+    color: '#d3d3d3',
+    marginBottom: '40px',
   };
 
   return (
-    <section className="bg-gradient-to-b from-gray-900 to-gray-800 py-16 px-4">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Engage in a Snap: Click, Engage, Done!
-          </h2>
-          <p className="text-xl text-gray-300">
-            Transform your LinkedIn interactions with personalized, impactful
-            comments at the click of a button!
-          </p>
-        </div>
+    <div style={containerStyle}>
+      {/* Heading Section */}
+      <div>
+        <h1 style={headingStyle}>Engage in a Snap: Click, Engage, Done!</h1>
+        <p style={subheadingStyle}>
+          Transform your LinkedIn interactions with personalized, impactful comments at the click of a button!
+        </p>
+      </div>
 
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
-          <div className="w-full lg:w-1/2 space-y-4">
-            {content.map((item, index) => (
-              <div
-                key={index}
-                className={`cursor-pointer transition-all duration-300 p-6 rounded-lg ${
-                  selectedIndex === index
-                    ? "bg-blue-600 text-white"
-                    : "bg-white hover:bg-blue-100"
-                }`}
-                onClick={() => handleContentChange(index)}
-                onKeyDown={(e) =>
-                  e.key === "Enter" && handleContentChange(index)
-                }
-                tabIndex={0}
-                role="button"
-                aria-pressed={selectedIndex === index}
-              >
-                <div className="flex items-start gap-4">
-                  <div className="text-4xl font-bold">{index + 1}</div>
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                    <p className="text-gray-700">{item.description}</p>
-                  </div>
-                </div>
+      {/* Content Section */}
+      <div style={{ display: 'flex' }}>
+        <div style={columnStyle}>
+          {content.map((item, index) => (
+            <div key={index} 
+                 style={divStyle(index)} 
+                 onClick={() => {
+                   setSelectedImage(item.img);
+                   setSelectedIndex(index);
+                 }}
+                 role="button"
+                 tabIndex={0}
+                 onKeyPress={(e) => {
+                   if (e.key === 'Enter') {
+                     setSelectedImage(item.img);
+                     setSelectedIndex(index);
+                   }
+                 }}>
+              {selectedIndex === index && <div style={lineStyle}></div>}
+              <div style={numberContainerStyle}>{`${index + 1}/`}</div>
+              <div>
+                <div style={{ fontWeight: 'bold', fontSize: '16px', marginBottom: '4px' }}>{item.title}</div>
+                <div style={{ fontSize: '14px' }}>{item.description}</div>
               </div>
-            ))}
-          </div>
-
-          <div className="w-full lg:w-1/2">
-            <div className="relative aspect-video">
-              <img
-                src={content[selectedIndex].img}
-                alt={content[selectedIndex].title}
-                className={`object-contain w-full h-full transition-opacity duration-500 ${
-                  fadeIn ? "opacity-100" : "opacity-0"
-                }`}
-              />
             </div>
-          </div>
+          ))}
+        </div>
+        <div style={imageContainerStyle}>
+          <img 
+            src={selectedImage} 
+            alt={content[selectedIndex].title} 
+            style={imageStyle} 
+            onLoad={handleImageLoad}
+          />
         </div>
       </div>
-    </section>
+    </div>
   );
 }
+
+export default NewSlider;
