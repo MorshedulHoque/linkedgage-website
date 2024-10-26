@@ -9,7 +9,7 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
       >
         <span>{question}</span>
         <svg
-          className={`fill-current text-blue-600 h-6 w-6 transform transition-transform duration-500 ${
+          className={`fill-current text-lightBlue h-6 w-6 transform transition-transform duration-500 ${
             isOpen ? "rotate-180" : ""
           }`}
           viewBox="0 0 20 20"
@@ -18,7 +18,7 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
         </svg>
       </h2>
       <div
-        className={`border-l-4 border-blue-600 overflow-hidden transition-all duration-500 ease-in-out ${
+        className={`border-l-4 border-lightBlue overflow-hidden transition-all duration-500 ease-in-out ${
           isOpen ? "max-h-40" : "max-h-0"
         }`} // Set a max height when open
       >

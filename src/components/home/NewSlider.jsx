@@ -64,7 +64,7 @@ function NewSlider() {
   const lineStyle = {
     height: '4px',
     width: '100%',
-    backgroundColor: '#007bff',
+    backgroundColor: '#0ea5e9',
     position: 'absolute',
     bottom: '-2px',
     left: '0',

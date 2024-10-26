@@ -50,7 +50,7 @@ const HeroFifth = () => {
               className="textarea textarea-bordered textarea-lg w-full max-w-xs"
             ></textarea>
           </form>
-          <button className="btn btn-ghost bg-gradient-to-r from-blue-400 to-blue-950 text-white border-0 hover:from-blue-950 hover:to-blue-400 shadow-md text-lg mt-6">
+          <button className="btn btn-ghost bg-gradient-to-r from-lightBlue to-blue-950 text-white border-0 hover:from-blue-950 hover:to-blue-400 shadow-md text-lg mt-6">
             <div className="indicator">Get in Touch</div>
           </button>
         </div>

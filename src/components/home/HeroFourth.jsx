@@ -5,7 +5,7 @@ const HeroFourth = () => {
   return (
     <div className="min-h-fit bg-zinc-900 flex flex-col items-center justify-center py-20">
       {/* Main Gradient Section */}
-      <div className="bg-gradient-to-r from-blue-500 to-blue-900 w-11/12 md:w-4/6 h-auto md:h-96 rounded-3xl flex flex-col md:flex-row justify-between items-center p-6 md:p-12 shadow-lg">
+      <div className="bg-gradient-to-r from-lightBlue to-blue-900 w-11/12 md:w-4/6 h-auto md:h-96 rounded-3xl flex flex-col md:flex-row justify-between items-center p-6 md:p-12 shadow-lg">
         {/* Text Content */}
         <div className="flex-1 text-center md:text-left mb-6 md:mb-0">
           <div className="p-4 md:p-8">
