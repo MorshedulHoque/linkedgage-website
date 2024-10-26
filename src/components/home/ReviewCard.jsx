@@ -101,7 +101,7 @@ const ReviewCard = () => {
           >
             {reviews.map((item, index) => (
               <SwiperSlide key={index} className="relative">
-                <div className="flex flex-col items-center bg-gray-800 rounded-2xl p-6 shadow-xl h-full transition-transform transform hover:scale-105 min-h-[400px] overflow-hidden">
+                <div className="flex flex-col items-center bg-gray-800 rounded-2xl p-6 shadow-xl h-full transition-transform transform hover:scale-105 min-h-[400px] overflow-hidden" data-aos="fade-zoom-in" data-aos-anchor-placement="bottom-bottom" data-aos-duration="3000">
                   <div className="flex items-center mb-4">
                     {[...Array(5)].map((_, starIndex) => (
                       <svg
