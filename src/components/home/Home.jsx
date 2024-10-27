@@ -7,34 +7,21 @@ import HeroFifth from "./HeroFifth";
 import NewSlider from "./NewSlider";
 import ReviewCard from "./ReviewCard";
 import FAQ from "./Faq";
+import NewsletterSignup from "./NewsletterSignup";
+
 
 const Home = () => {
   return (
     <div className="relative">
-      <div>
         <Hero />
-      </div>
-      <div>
         <HeroSecond />
-      </div>
-      <div>
         <NewSlider />
-      </div>
-      <div>
         <HeroThird />
-      </div>
-      <div>
         <HeroFourth />
-      </div>
-      <div>
         <ReviewCard />
-      </div>
-      <div>
         <HeroFifth />
-      </div>
-      <div>
         <FAQ />
-      </div>
+        <NewsletterSignup/>
     </div>
   );
 };
