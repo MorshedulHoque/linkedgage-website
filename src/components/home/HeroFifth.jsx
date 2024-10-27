@@ -24,12 +24,13 @@ const HeroFifth = () => {
         </div>
         <div className="flex-1 text-center md:text-left">
           <h2 className="text-2xl md:text-3xl font-bold leading-tight text-gray-50 sm:text-4xl xl:text-5xl mb-6">
-            Get In Touch
+          Let’s Connect!
           </h2>
-          <p className="mb-4 text-gray-50 text-base md:text-lg">
-            A good design is not only aesthetically pleasing, but{" "}
+          <p className="mb-4 text-gray-50 text-base md:text-lg w-3/5">
+            {/* A good design is not only aesthetically pleasing, but{" "}
             <br className="hidden md:inline" /> also functional. It should be
-            able to solve the problem.
+            able to solve the problem. */}
+            Have questions, feedback, or ideas? We’d love to hear from you! Reach out and let’s discuss how we can support your journey. Fill out the form, and we’ll get back to you shortly.
           </p>
           <form
             action=""

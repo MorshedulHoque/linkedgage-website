@@ -17,6 +17,7 @@ module.exports = {
       },
       animation: {
         'border-width': 'border-width 3s infinite alternate',
+        rotate: 'rotate 10s linear infinite', // Added rotate animation
       },
       keyframes: {
         'border-width': {
@@ -28,6 +29,10 @@ module.exports = {
             width: '100px',
             opacity: '1',
           },
+        },
+        rotate: { // Added rotate keyframes
+          '0%': { transform: 'rotate(0deg) scale(10)' },
+          '100%': { transform: 'rotate(-360deg) scale(10)' },
         },
       },
     },
