@@ -14,20 +14,14 @@ const content = [
 function NewSlider() {
   const [selectedImage, setSelectedImage] = useState(content[0].img);
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [imageOpacity, setImageOpacity] = useState(0);
+  const [imageOpacity, setImageOpacity] = useState(1); // Start with full opacity
   const [fadeIn, setFadeIn] = useState(true);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      changeContent(selectedIndex + 1);
-    }, 5000); // Change image every 5 seconds
-    return () => clearInterval(timer);
-  }, [selectedIndex]);
 
   const changeContent = (newIndex) => {
     setFadeIn(false); // Start fading out
     setTimeout(() => {
       setSelectedIndex(newIndex % content.length); // Wrap around
+      setSelectedImage(content[newIndex % content.length].img); // Change the image
       setFadeIn(true); // Start fading in
     }, 300); // Wait for fade-out duration
   };
@@ -96,8 +90,8 @@ function NewSlider() {
   };
 
   const imageStyle = {
-    transition: 'opacity 1s ease-in-out', // Change to slower or faster by modifying the duration here
-    opacity: imageOpacity,
+    transition: 'opacity 0.5s ease-in-out', // Change to slower or faster by modifying the duration here
+    opacity: fadeIn ? 1 : 0, // Control opacity based on fadeIn state
     width: '100%',
     height: 'auto',
   };
@@ -131,16 +125,12 @@ function NewSlider() {
           {content.map((item, index) => (
             <div key={index} 
                  style={divStyle(index)} 
-                 onClick={() => {
-                   setSelectedImage(item.img);
-                   setSelectedIndex(index);
-                 }}
+                 onClick={() => handleContentChange(index)}
                  role="button"
                  tabIndex={0}
                  onKeyPress={(e) => {
                    if (e.key === 'Enter') {
-                     setSelectedImage(item.img);
-                     setSelectedIndex(index);
+                     handleContentChange(index);
                    }
                  }}>
               {selectedIndex === index && <div style={lineStyle}></div>}
@@ -153,16 +143,14 @@ function NewSlider() {
           ))}
         </div>
         <div className="w-full lg:w-1/2">
-            <div className="relative w-full aspect-video">
-              <img
-                src={content[selectedIndex].img}
-                alt={content[selectedIndex].title}
-                className={`object-contain w-full h-full transition-opacity duration-500 ${
-                  fadeIn ? "opacity-100" : "opacity-0"
-                }`}
-              />
-            </div>
+          <div className="relative w-full aspect-video">
+            <img
+              src={content[selectedIndex].img}
+              alt={content[selectedIndex].title}
+              style={imageStyle}
+            />
           </div>
+        </div>
       </div>
     </div>
   );
