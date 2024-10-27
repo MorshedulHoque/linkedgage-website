@@ -6,7 +6,8 @@ import "aos/dist/aos.css";
 
 const App = () => {
   useEffect(() => {
-    AOS.init({ duration: 2000 }); // Initialize AOS animations with a duration
+    AOS.init({ once: true });
+    AOS.refresh(); // Refresh to ensure animations are applied
   }, []);
 
   return (

@@ -12,7 +12,7 @@ const Hero = () => {
       {/* Hero Card */}
       <div className="absolute top-[40%] left-1/2 transform -translate-x-1/2 z-10 px-4 md:px-0 w-full max-w-2xl">
 
-        <div className="absolute" data-aos="zoom-out">
+        <div className="absolute" data-aos="zoom-out" data-aos-duration="2000">
           <img src={demo} alt="" className="" />
         </div>
       </div>
@@ -36,7 +36,7 @@ const Hero = () => {
       </div>
       {/* Bubble End */}
 
-      <div className="text-gray-50 flex flex-col gap-4 py-8 md:py-16 relative z-10 px-4" data-aos="zoom-out">
+      <div className="text-gray-50 flex flex-col gap-4 py-8 md:py-16 relative z-10 px-4" data-aos="zoom-out" data-aos-duration="2000">
         <h1 className="text-center font-bold text-4xl md:text-5xl lg:text-6xl">
           Elevate Your LinkedIn <br /> <span>Conversations</span>
         </h1>

@@ -62,7 +62,7 @@ const HeroThird = () => {
           </p>
         </div>
         <div className="grid max-w-4xl lg:max-w-6xl grid-cols-1 mx-auto mt-8 text-center gap-y-4 sm:gap-x-8 sm:grid-cols-2 lg:grid-cols-3 sm:mt-12 lg:mt-20 sm:text-left py-10">
-          <div className="relative" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
+          <div className="relative" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="500">
             <AnimatedGradientBorderTW>
               <div className="card h-full">
                 <div className="p-9 text-center">
@@ -80,7 +80,7 @@ const HeroThird = () => {
             </AnimatedGradientBorderTW>
           </div>
 
-          <div className="relative" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1500">
+          <div className="relative" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
             <AnimatedGradientBorderTW>
               <div className="card h-full">
                 <div className="p-9 text-center">
@@ -98,7 +98,7 @@ const HeroThird = () => {
             </AnimatedGradientBorderTW>
           </div>
 
-          <div className="relative" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="2000">
+          <div className="relative" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1500">
             <AnimatedGradientBorderTW>
               <div className="card h-full">
                 <div className="p-9 text-center">
@@ -116,7 +116,7 @@ const HeroThird = () => {
             </AnimatedGradientBorderTW>
           </div>
 
-          <div className="relative" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="2500">
+          <div className="relative" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="2000">
             <AnimatedGradientBorderTW>
               <div className="card h-full">
                 <div className="p-9 text-center">
@@ -134,6 +134,23 @@ const HeroThird = () => {
             </AnimatedGradientBorderTW>
           </div>
 
+          <div className="relative" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="2500">
+            <AnimatedGradientBorderTW>
+              <div className="card h-full">
+                <div className="p-9 text-center">
+                  <div className="flex justify-center">
+                    <div className="icon-container">
+                      <img src={eight} alt="" className="w-8 h-8" />
+                    </div>
+                  </div>
+                  <h3 className="heading">Seamless LinkedIn Integration</h3>
+                  <p className="paragraph">
+                    A convenient icon in every post's comment section makes it easy to access the extension.
+                  </p>
+                </div>
+              </div>
+            </AnimatedGradientBorderTW>
+          </div>
           <div className="relative" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="3000">
             <AnimatedGradientBorderTW>
               <div className="card h-full">
@@ -152,23 +169,6 @@ const HeroThird = () => {
             </AnimatedGradientBorderTW>
           </div>
 
-          <div className="relative" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="3500">
-            <AnimatedGradientBorderTW>
-              <div className="card h-full">
-                <div className="p-9 text-center">
-                  <div className="flex justify-center">
-                    <div className="icon-container">
-                      <img src={nine} alt="" className="w-8 h-8" />
-                    </div>
-                  </div>
-                  <h3 className="heading">Engagement Optimization</h3>
-                  <p className="paragraph">
-                  Tailor comments to improve visibility and interactions on your posts and network.
-                  </p>
-                </div>
-              </div>
-            </AnimatedGradientBorderTW>
-          </div>
         </div>
       </div>
     </section>
