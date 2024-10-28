@@ -5,13 +5,13 @@ import BubbleMd from "../../images/bubble_medium.png";
 import BubbleSm from "../../images/bubble_small.png";
 import MiddleLight from "../../images/Ellipse 5.png";
 import demo from "../../images/1.png";
-import Carve from "./Carve/Carve";
 
 const Hero = () => {
   return (
-    <div className="min-h-fit bg-black relative z-0  inset-0 h-full w-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]">
+    <div className="min-h-fit bg-black relative z-0 absolute inset-0 h-full w-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]">
       {/* Hero Card */}
-      <div className="absolute top-[40%] left-1/2 transform -translate-x-1/2 z-20 px-4 md:px-0 w-full max-w-2xl">
+      <div className="absolute top-[40%] left-1/2 transform -translate-x-1/2 z-10 px-4 md:px-0 w-full max-w-2xl">
+
         <div className="absolute" data-aos="zoom-out" data-aos-duration="2000">
           <img src={demo} alt="" className="" />
         </div>
@@ -47,7 +47,6 @@ const Hero = () => {
           <button className="btn btn-ghost slow-glow-button bg-gradient-to-r from-lightBlue to-blue-950 text-white border-0 hover:from-blue-950 hover:to-blue-400 shadow-md text-sm md:text-lg transition-all duration-800 ease-in-out">
             <div className="indicator">Download Extension</div>
           </button>
-
           <style jsx>{`
             @keyframes glowRotate {
               0% {
@@ -65,7 +64,7 @@ const Hero = () => {
             }
 
             .slow-glow-button::before {
-              content: "";
+              content: '';
               position: absolute;
               top: -150%;
               left: -150%;
@@ -81,7 +80,7 @@ const Hero = () => {
             }
 
             .slow-glow-button::after {
-              content: "";
+              content: '';
               position: absolute;
               inset: 2px;
               background: inherit; /* Inherits your gradient background */
@@ -101,11 +100,9 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* <div className="w-full">
+      <div className="w-full">
         <img src={Blue} alt="" className="w-full h-auto" />
-      </div> */}
-      {/* curve background */}
-      <Carve/>
+      </div>
     </div>
   );
 };

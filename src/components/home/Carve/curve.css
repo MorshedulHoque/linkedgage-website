@@ -1,0 +1,8 @@
+.custom-curve {
+    border-radius: 0 0 50% 50%/0 0 100% 100%;
+    transform: scaleX(1.09);
+}
+.custom-curve-down {
+    border-radius: 50% 50% 0 0/100% 100% 0 0;
+    transform: scaleX(1.09);
+}
