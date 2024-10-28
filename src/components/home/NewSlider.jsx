@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 // Import images as specified
 import img1 from '../../images/1.png';
 import img2 from '../../images/2.png';
-import img3 from '../../images/3.png';
+import img3 from '../../images/4.png';
 
 const content = [
   { title: "Click to Spark Conversations!", description: "Tired of crafting comments from scratch? Just click the LinkedGage icon attached to every post’s comment section, and you’re ready to roll.", img: img1 },
