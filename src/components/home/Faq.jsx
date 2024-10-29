@@ -87,7 +87,7 @@ const FAQ = () => {
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4">
-            <ul data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-duration="2000">
+            <ul data-aos="fade-right" data-aos-anchor-placement="center-bottom" data-aos-duration="2000">
               {faqData
                 .slice(0, Math.ceil(faqData.length / 2))
                 .map((faq, index) => (
@@ -100,7 +100,7 @@ const FAQ = () => {
                   />
                 ))}
             </ul>
-            <ul data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-duration="2500">
+            <ul data-aos="fade-left" data-aos-anchor-placement="center-bottom" data-aos-duration="2000">
               {faqData
                 .slice(Math.ceil(faqData.length / 2))
                 .map((faq, index) => (
