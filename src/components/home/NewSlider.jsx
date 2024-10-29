@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
 // Import images as specified
-import img1 from '../../images/1.png';
-import img2 from '../../images/2.png';
+import img1 from '../../images/2.png';
+import img2 from '../../images/3.png';
 import img3 from '../../images/4.png';
 
 const content = [
