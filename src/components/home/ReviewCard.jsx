@@ -67,7 +67,6 @@ const ReviewCard = () => {
       review:
         "As someone who relies on LinkedIn for networking, this extension has been a lifesaver. I can quickly engage with multiple posts without sacrificing quality. Highly recommend!",
     },
-    // ... Other reviews
   ];
 
   return (
@@ -79,20 +78,23 @@ const ReviewCard = () => {
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl md:text-center">
-            <h2 className="font-display text-4xl tracking-tight text-white mb-10">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight text-white mb-10">
               What Our Customers Are Saying
             </h2>
           </div>
           <Swiper
             ref={swiperRef}
             spaceBetween={30}
-            slidesPerView={1}
+            slidesPerView={1} // Ensure only one slide is visible on mobile
             breakpoints={{
               640: {
-                slidesPerView: 2,
+                slidesPerView: 1, // For small screens
+              },
+              768: {
+                slidesPerView: 2, // For tablets
               },
               1024: {
-                slidesPerView: 3,
+                slidesPerView: 3, // For larger screens
               },
             }}
             pagination={{ clickable: true }}
@@ -101,7 +103,7 @@ const ReviewCard = () => {
           >
             {reviews.map((item, index) => (
               <SwiperSlide key={index} className="relative">
-                <div className="flex flex-col items-center bg-gray-800 rounded-2xl p-6 shadow-xl h-full transition-transform transform hover:scale-105 min-h-[400px] overflow-hidden">
+                <div className="flex flex-col items-center bg-gray-800 rounded-2xl p-6 shadow-xl h-[450px] transition-transform transform hover:scale-105 overflow-hidden">
                   <div className="flex items-center mb-4">
                     {[...Array(5)].map((_, starIndex) => (
                       <svg
@@ -116,14 +118,14 @@ const ReviewCard = () => {
                     ))}
                   </div>
                   <blockquote className="flex-1 mb-6 overflow-hidden">
-                    <p className="text-lg tracking-tight text-white text-center">
+                    <p className="text-lg sm:text-base md:text-lg lg:text-xl tracking-tight text-white text-center">
                       {item.review}
                     </p>
                   </blockquote>
                   <figcaption className="flex items-center justify-start mt-6 border-t border-slate-100 pt-6 w-full">
                     <img
                       alt={`Avatar of ${item.name}`}
-                      className="h-16 w-16 rounded-full border-2 border-gray-700 object-cover mr-4"
+                      className="h-14 w-14 sm:h-16 sm:w-16 rounded-full border-2 border-gray-700 object-cover mr-4"
                       src={item.image}
                     />
                     <div>
