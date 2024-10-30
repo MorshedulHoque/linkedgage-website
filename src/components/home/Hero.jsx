@@ -1,5 +1,4 @@
 import React from "react";
-import Blue from "../../images/Hero_blue.png";
 import BubbleLg from "../../images/bubble_big.png";
 import BubbleMd from "../../images/bubble_medium.png";
 import BubbleSm from "../../images/bubble_small.png";
