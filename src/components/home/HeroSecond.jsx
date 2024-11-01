@@ -62,7 +62,7 @@ const HeroSecond = () => {
         </div>
         <div className="grid max-w-4xl lg:max-w-6xl grid-cols-1 mx-auto mt-8 text-center gap-y-8 sm:gap-x-8 sm:grid-cols-2 lg:grid-cols-3 sm:mt-12 lg:mt-20 sm:text-left">
           {/* First Box */}
-          <div className="relative">
+          <div className="relative" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-duration="1000">
             <div className="card">
               <div className="absolute top-0 flex w-full justify-center">
                 <div className="left-0 h-[1px] animate-border-width rounded-full bg-gradient-to-r from-[rgba(17,17,17,0)] via-white to-[rgba(17,17,17,0)] transition-all duration-1000" />
@@ -85,7 +85,7 @@ const HeroSecond = () => {
           </div>
 
           {/* Second Box */}
-          <div className="relative">
+          <div className="relative" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-duration="1500">
             <div className="card">
               <div className="absolute top-0 flex w-full justify-center">
                 <div className="left-0 h-[1px] animate-border-width rounded-full bg-gradient-to-r from-[rgba(17,17,17,0)] via-white to-[rgba(17,17,17,0)] transition-all duration-1000" />
@@ -109,7 +109,7 @@ const HeroSecond = () => {
           </div>
 
           {/* Third Box */}
-          <div className="relative">
+          <div className="relative" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-duration="2000">
             <div className="card">
               <div className="absolute top-0 flex w-full justify-center">
                 <div className="left-0 h-[1px] animate-border-width rounded-full bg-gradient-to-r from-[rgba(17,17,17,0)] via-white to-[rgba(17,17,17,0)] transition-all duration-1000" />

@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 // Import images as specified
-import img1 from "../../images/1.png";
-import img2 from "../../images/2.png";
-import img3 from "../../images/3.png";
+import img1 from "../../images/2.png";
+import img2 from "../../images/3.png";
+import img3 from "../../images/4.png";
 
 const content = [
   {
@@ -30,13 +30,6 @@ function NewSlider() {
   const [selectedImage, setSelectedImage] = useState(content[0].img);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [fadeIn, setFadeIn] = useState(true);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      changeContent(selectedIndex + 1);
-    }, 5000); // Change image every 5 seconds
-    return () => clearInterval(timer);
-  }, [selectedIndex]);
 
   const changeContent = (newIndex) => {
     setFadeIn(false); // Start fading out
@@ -65,7 +58,6 @@ function NewSlider() {
       </div>
 
       <div className="flex flex-col lg:flex-row w-full">
-        {/* Mobile-specific style for content list */}
         <div className="flex flex-col w-full lg:w-1/2 lg:mr-20 mb-8 lg:mb-0">
           {content.map((item, index) => (
             <div
@@ -91,9 +83,7 @@ function NewSlider() {
               {selectedIndex === index && (
                 <div className="absolute bottom-0 left-0 h-1 w-full bg-sky-500 rounded-md"></div>
               )}
-              <div className="font-bold text-3xl mr-5 text-white">{`${
-                index + 1
-              }/`}</div>
+              <div className="font-bold text-3xl mr-5 text-white">{`${index + 1}/`}</div>
               <div>
                 <div className="font-bold text-white text-lg mb-1">
                   {item.title}
@@ -116,7 +106,6 @@ function NewSlider() {
         </div>
       </div>
 
-      {/* Mobile-specific styles */}
       <style>
         {`
           @media (max-width: 640px) {
